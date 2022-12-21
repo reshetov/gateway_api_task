@@ -1,0 +1,22 @@
+<div class="account">
+  <div class="data-row headers">
+    <div><%= t('account.id') %></div>
+    <div><%= t('account.name') %></div>
+    <div><%= t('account.nature') %></div>
+    <div><%= t('account.balance') %></div>
+    <div><%= t('account.currency_code') %></div>
+    <div><%= t('account.tansactions') %></div>
+    <div><%= t('account.updated_at') %></div>
+  </div>
+  <% @accounts.find_each do |account| %>
+    <div class="account-row data-row">
+      <div><%= account.api_id %></div>
+      <div><%= account.name %></div>
+      <div><%= account.nature %></div>
+      <div><%= account.balance %></div>
+      <div><%= account.currency_code %></div>
+      <div><%= link_to(account.transactions.count, account_transactions_path(account)) if account.transactions.any? %></div>
+      <div><%= account.updated_at %></div>
+    </div>
+  <% end %>
+</div>

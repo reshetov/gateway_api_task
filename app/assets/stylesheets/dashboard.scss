@@ -1,0 +1,30 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right {
+  display: flex;
+  justify-content: right;
+}
+
+.alert-wrapper {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+.data-row {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+}
+
+.headers {
+  font-weight: bold;
+  margin-bottom: 10px;
+}

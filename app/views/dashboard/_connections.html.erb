@@ -1,0 +1,31 @@
+<div class="new-connection right">
+  <%= link_to(t(:connection_new), connections_path, method: :post) %>
+</div>
+<div class="connection">
+  <div class="data-row headers">
+    <div><%= t('connection.id') %></div>
+    <div><%= t('connection.customer_id') %></div>
+    <div><%= t('connection.status') %></div>
+    <div><%= t('connection.updated_at') %></div>
+    <div><%= t('connection.accounts') %></div>
+    <div><%= t('connection.actions') %></div>
+  </div>
+  <% current_user.connections.find_each do |conn| %>
+    <div class="connection-row data-row">
+      <div><%= conn.connection_id %></div>
+      <div><%= current_user.customer.api_id %></div>
+      <div><%= conn.status %></div>
+      <div><%= conn.updated_at %></div>
+      <div><%= link_to(conn.accounts.count, connection_accounts_path(conn)) if conn.accounts.any? %></div>
+      <div>
+        <% if conn.next_refresh && conn.next_refresh < Time.now %>
+          <span><%= link_to(t(:connection_referesh), refresh_connection_path(conn), method: :put) %></span>
+        <% else %>
+          <span><%= t(:refresh_unavailable) %><span>
+        <% end %>
+        <span><%= link_to(t(:connection_reconnect), reconnect_connection_path(conn), method: :post) %></span>
+        <span><%= link_to(t(:connection_destory), connection_path(conn), method: :delete) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

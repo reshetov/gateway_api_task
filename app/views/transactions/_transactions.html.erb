@@ -1,0 +1,28 @@
+<div class="transaction">
+  <div class="data-row headers">
+    <div><%= t('transaction.id') %></div>
+    <div><%= t('transaction.duplicated') %></div>
+    <div><%= t('transaction.mode') %></div>
+    <div><%= t('transaction.description') %></div>
+    <div><%= t('transaction.status') %></div>
+    <div><%= t('transaction.made_on') %></div>
+    <div><%= t('transaction.amount') %></div>
+    <div><%= t('transaction.currency_code') %></div>
+    <div><%= t('transaction.category') %></div>
+    <div><%= t('transaction.updated_at') %></div>
+  </div>
+  <% @transactions.find_each do |transaction| %>
+    <div class="transaction-row data-row">
+      <div><%= transaction.api_id %></div>
+      <div><%= transaction.duplicated %></div>
+      <div><%= transaction.mode %></div>
+      <div><%= transaction.description %></div>
+      <div><%= transaction.status %></div>
+      <div><%= transaction.made_on %></div>
+      <div><%= transaction.amount %></div>
+      <div><%= transaction.currency_code %></div>
+      <div><%= transaction.category %></div>
+      <div><%= transaction.updated_at %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<% if current_user %>
+  <div class="header">
+    <div class="app"><%= t(:application) %></div>
+    <div class="user">
+      <span><%= t(:user_message, user: current_user.fullname) %><span>
+      <span><%= link_to(t(:logout), destroy_user_session_path, method: :delete) %><span>
+    </div>
+  </div>
+
+  <div class="info right">
+    <div class="customer">
+      <span><%= t(:customer_id, cid: current_user.customer.api_id) %></span>
+    </div>
+  </div>
+<% end %>
