@@ -1,24 +1,36 @@
-# README
+### Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Test implementation of API gateway client. Based on SaltEdge API.
 
-Things you may want to cover:
+### Installation
 
-* Ruby version
+#### Base steps
 
-* System dependencies
+```bash
+git clone git@github.com:organization/project-name.git
+cp config/database.yml.example config/database.yml
+cp .env.example .env
+bundle install
+bundle exec rake db:create db:setup
+```
 
-* Configuration
+#### Extra steps
 
-* Database creation
+```bash
+1. Fill .env file with required varibles or use ENV to pass them
+2. Configure database.yml with yours data
+```
 
-* Database initialization
+#### Start Rails server
 
-* How to run the test suite
+```bash
+bundle exec rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Tests
 
-* Deployment instructions
+#### Run application tests
 
-* ...
+```bash
+bundle exec rspec
+```
