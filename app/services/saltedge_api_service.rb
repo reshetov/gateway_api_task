@@ -34,7 +34,7 @@ class SaltedgeApiService
       }
     )
 
-    pp JSON.parse(response.body)['data'] # TODO: REMOVE
+    pp JSON.parse(response.body)['data'] if ENV['DEBUG']
     [response.code, JSON.parse(response.body)['data']]
   rescue RestClient::Exception => error
     bad_response = error.response
